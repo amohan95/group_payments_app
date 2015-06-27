@@ -1,0 +1,19 @@
+{
+  "name": "group_payments_app",
+  "version": "0.0.0",
+  "homepage": "https://github.com/amohan95/group_payments_app",
+  "authors": [
+    "Ananth Mohan <ananthmo@usc.edu>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  }
+}
