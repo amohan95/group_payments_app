@@ -20,12 +20,33 @@
   [hidden] {
     display: none;
   }
+
+  .person-card {
+    padding: 15px;
+    display: inline-block;
+    margin: 2.5% auto;
+    width: 92%;
+    font-size: 20px;
+  }
+
+  .person-card-info {
+    float: left;
+  }
+
+  .person-card-info span, paper-checkbox, img {
+    padding-left: 15px;
+  }
+
+  #ink[checked] {
+    color: #0f9d58;
+  }
+
 </style>
 
 <dom-module id="person-list-element">
   <template>
-    <paper-material elevation="1" style="min-height:60px;padding:10px;display:inline-block;margin:2%;">
-      <div>
+    <paper-material class="person-card" elevation="1">
+      <div class="person-card-info">
         <paper-checkbox value="{{person_id}}">
           <img src="{{img_url}}" class="circular-photo-small">
           <span>{{name}}</span>
