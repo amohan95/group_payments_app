@@ -6,4 +6,19 @@ $(document).ready(function() {
   $("#group-page").append(new GroupCard("Stupidest Group", "./../img/ananth-profile.jpg",
                                         50, 500, ["Bananthus", "Binuantoiwe", "Hitler", "AlsoAnanth",
                                         "NotAnantyh"]));
+
+  $(".backToGroupHome").click(function() {
+  	var pages = document.querySelector('iron-pages');
+      pages.select(0);
+  });
+
+  $(".backToGroupListEvents").click(function() {
+  	var pages = document.querySelector('iron-pages');
+      pages.select(2);
+  });
+
+  $(".backToGroupListEvents").click(function() {
+  	var pages = document.querySelector('iron-pages');
+      pages.select(1);
+  });
 });
