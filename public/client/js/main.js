@@ -1,4 +1,4 @@
-$(document).ready(function() { 
+$(document).ready(function() {
   $(".backToGroupHome").click(function() {
     var pages = document.querySelector('iron-pages');
     pages.select(0);
@@ -12,6 +12,11 @@ $(document).ready(function() {
   $(".backToGroupListEvents").click(function() {
     var pages = document.querySelector('iron-pages');
     pages.select(1);
+  });
+
+  $(".toCreateGroup").click(function() {
+    var pages = document.querySelector('iron-pages');
+    pages.select(6);    
   });
 
   var ananth = {
@@ -39,8 +44,7 @@ $(document).on('fb-ready', function(response) {
     console.log(response.first_name);
     //card creation happens here passing in image url
   });
-
-  
+  hideLoading();
 });
 
 function getFBFriendsPhotos(listNames) {
@@ -117,4 +121,12 @@ function convertAmount(cents) {
       dollars = remainder + stringReverse(dollars.match(/.../g).join(","));
   }
   return ["$", [dollars, decimal].join(".")].join("");
+}
+
+function showLoading() {
+  $(".loading-area").fadeIn('fast');
+}
+
+function hideLoading() {
+  $(".loading-area").fadeOut('fast');
 }
