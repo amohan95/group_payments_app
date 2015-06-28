@@ -18,7 +18,6 @@
     "gold-elements": "PolymerElements/gold-elements#~1.0.1",
     "neon-elements": "PolymerElements/neon-elements#~1.0.0",
     "iron-elements": "PolymerElements/iron-elements#~1.0.1",
-    "urban-login": "mattstyles/urban-login#master",
     "paper-elements": "PolymerElements/paper-elements#~1.0.1"
   },
   "resolutions": {
