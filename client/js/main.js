@@ -39,6 +39,8 @@ $(document).on('fb-ready', function(response) {
     console.log(response.first_name);
     //card creation happens here passing in image url
   });
+
+  
 });
 
 function getFBFriendsPhotos(listNames) {

@@ -75,12 +75,123 @@
 }
 
 .person-list-container {
-  height: 300px;
+  height: 400px;
   overflow-y: auto;
   padding: 1%;
+  text-align: center;
 }
 
 /* END CUSTOM STYLES */
+
+/* LOADING ANIMATIONS */
+.animation-1 {
+  width:55px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform:rotate(45deg);
+}
+
+.animation-1 div {
+  display:inline-block;
+  background-color: #0088d0;
+  width:25px;
+  height:25px;
+  margin:0;
+  padding:0;
+}
+
+.animation-1 .box1
+{
+    -webkit-animation: animation1-box1 1.5s infinite;
+    animation: animation1-box1 2s infinite;
+}
+
+.animation-1 .box2
+{
+    -webkit-animation: animation1-box2 1.5s infinite;
+    animation: animation1-box2 2s infinite;
+}
+
+.animation-1 .box3
+{
+    -webkit-animation: animation1-box3 1.5s infinite;
+    animation: animation1-box3 2s infinite;
+}
+
+.animation-1 .box4
+{
+    -webkit-animation: animation1-box4 1.5s infinite;
+    animation: animation1-box4 2s infinite;
+}
+
+@keyframes animation1-box1
+{
+    40%
+    {
+        transform: translate(-25px, -25px) rotate(85deg);
+    }
+    50%
+    {
+
+        transform: translate(-25px, -25px) rotate(90deg);
+    }
+    100%
+    {
+        transform: translate(-0px, -0px) rotate(180deg);
+    }
+}
+
+
+@keyframes animation1-box2
+{
+    40%
+    {
+        transform: translate(50px, -25px) rotate(85deg);
+    }
+    50%
+    {
+        transform: translate(50px, -25px) rotate(90deg);
+    }
+    100%
+    {
+        transform: translate(-0px, -0px) rotate(180deg);
+    }
+}
+
+@keyframes animation1-box3
+{
+    40%
+    {
+        transform: translate(-50px, 25px) rotate(85deg);
+    }
+    50%
+    {
+        transform: translate(-50px, 25px) rotate(90deg);
+    }
+    100%
+    {
+        transform: translate(-0px, -0px) rotate(180deg);
+    }
+}
+
+
+@keyframes animation1-box4
+{
+    40%
+    {
+        transform: translate(25px, 25px) rotate(85deg);
+    }
+    50%
+    {
+        transform: translate(25px, 25px) rotate(90deg);
+    }
+    100%
+    {
+        transform: translate(-0px, -0px) rotate(180deg);
+    }
+}
+
+/* END LOADING ANIMATION */
 
 html {
   color: #222;
