@@ -16,6 +16,8 @@
 !/log/.keep
 /tmp
 
-*.swp
 config/application.yml
+
+# Ignore text editor backup files
+*.swp
 
