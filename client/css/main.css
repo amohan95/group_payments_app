@@ -3,11 +3,6 @@
 /* CUSTOM STYLES */
 
 @media (min-width: 600px) {
-  .circular-photo {
-    width: 100%;
-    height: 100%;
-  }
-  
   .card-title {
     font-size: 24px;
     font-weight: bold;
@@ -33,6 +28,17 @@
   .card-subtitle {
     font-size: 14px;
   }
+}
+
+.circular-photo-small {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+
+.content {
+  margin: 0 2% 0 2%;
 }
 
 .card {
@@ -66,6 +72,12 @@
 .circular-photo {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
+}
+
+.person-list-container {
+  height: 300px;
+  overflow-y: auto;
+  padding: 1%;
 }
 
 /* END CUSTOM STYLES */

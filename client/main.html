@@ -13,24 +13,27 @@
   <link rel="import" href="bower_components/paper-button/paper-button.html">
   <link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
   <link rel="import" href="bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
-  <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
-  <link rel="import" href="bower_components/paper-input/paper-input.html">
-  <link rel="import" href="bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="bower_components/paper-input/paper-input.html">
+  <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+  <link rel="import" href="bower_components/iron-form/iron-form.html">
+  <link rel="import" href="bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="bower_components/iron-pages/iron-pages.html">
-  <link rel="import" href="sample-content.html">
 
-  <link rel="import" href="dom_modules/user-card.html">
+  <link rel="import" href="dom_modules/event-card.html">
   <link rel="import" href="dom_modules/group-card.html">
+  <link rel="import" href="dom_modules/person-list.html"> 
+  <link rel="import" href="dom_modules/user-card.html">
   <!--                          END IMPORTS                        -->
 
+  <script src="js/customFB.js"></script>
   <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/normalize.min.css">
 
-   <style is="custom-style">
+  <style is="custom-style">
 
     paper-scroll-header-panel {
       position: absolute;
@@ -65,117 +68,78 @@
   </style>
 
 </head>
-<body fullbleed vertical layout>
+<body>
 <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-  <script src="js/customFB.js"></script>
+  <div id="fb-root"></div>
 
-  <iron-pages selected= "5">
+  <iron-pages selected="6">
     <div id="groupsHome">
-          <paper-scroll-header-panel>
-
-          <paper-toolbar>
-
-            <paper-icon-button icon="settings"></paper-icon-button>
-              <div id="welcome-message" class="flex title">My Groups</div>
-            <paper-icon-button icon="add" class="createGroup"></paper-icon-button>
-          </paper-toolbar>
-
-          <div class="content">
-            <div id="user-page"></div>
-            <div id="group-page"></div>
-          </div>
-
-        </paper-scroll-header-panel>
+      <paper-scroll-header-panel>
+        <paper-toolbar>
+          <paper-icon-button icon="settings"></paper-icon-button>
+          <div id="welcome-message" class="flex title">My Groups</div>
+          <paper-icon-button icon="add" class="toCreateGroup"></paper-icon-button>
+        </paper-toolbar>
+        <div class="content"></div>
+      </paper-scroll-header-panel>
     </div>
 
-    <div id ="groupListPeople">
-          <paper-scroll-header-panel>
-
-          <paper-toolbar>
-
-            <paper-icon-button icon="arrow-back" class="backToGroupHome"></paper-icon-button>
-              <div class="flex title">INSERT GROUP NAME</div>
-            <paper-icon-button icon="add" id =""></paper-icon-button>
-          </paper-toolbar>
-
-          <div class="content">
-            <div id="user-page"></div>
-            <div id="group-page"></div>
-          </div>
-
-        </paper-scroll-header-panel>
+    <div id="groupListPeople">
+      <paper-scroll-header-panel>
+        <paper-toolbar>
+          <paper-icon-button icon="arrow-back" class="backToGroupHome"></paper-icon-button>
+          <div class="flex title">INSERT GROUP NAME</div>
+          <paper-icon-button icon="add" id =""></paper-icon-button>
+        </paper-toolbar>
+        <div class="content"></div>
+      </paper-scroll-header-panel>
     </div>
 
     <div id ="groupListEvents">
-          <paper-scroll-header-panel>
-
-          <paper-toolbar>
-
-            <paper-icon-button icon="arrow-back" class="backToGroupHome"></paper-icon-button>
-              <div class="flex title">Insert GROUP NAME</div>
-            <paper-icon-button icon="add" id ="createPayment"></paper-icon-button>
-          </paper-toolbar>
-
-          <div class="content">
-            <div id="user-page"></div>
-            <div id="group-page"></div>
-          </div>
-
-        </paper-scroll-header-panel>
+      <paper-scroll-header-panel>
+        <paper-toolbar>
+          <paper-icon-button icon="arrow-back" class="backToGroupHome"></paper-icon-button>
+          <div class="flex title">Insert GROUP NAME</div>
+          <paper-icon-button icon="add" class="toCreatePayment"></paper-icon-button>
+        </paper-toolbar>
+        <div class="content"></div>
+      </paper-scroll-header-panel>
     </div>
 
     <div id ="peopleHistory">
-          <paper-scroll-header-panel>
-
-          <paper-toolbar>
-
-            <paper-icon-button icon="arrow-back" class="backToGroupListPeople"></paper-icon-button>
-              <div class="flex title">INSERT PERSON's NAME</div>
-          </paper-toolbar>
-
-          <div class="content">
-            <div id="user-page"></div>
-            <div id="group-page"></div>
-          </div>
-
-        </paper-scroll-header-panel>
+      <paper-scroll-header-panel>
+        <paper-toolbar>
+          <paper-icon-button icon="arrow-back" class="backToGroupListPeople"></paper-icon-button>
+          <div class="flex title">INSERT PERSON's NAME</div>
+        </paper-toolbar>
+        <div class="content"></div>
+      </paper-scroll-header-panel>
     </div>
 
     <div id ="eventHistory">
-        <paper-scroll-header-panel>
-
+      <paper-scroll-header-panel>
         <paper-toolbar>
-
           <paper-icon-button icon="arrow-back" class="backToGroupListEvents"></paper-icon-button>
-            <div class="flex title">INSERT EVENT NAME</div>
+          <div class="flex title">INSERT EVENT NAME</div>
         </paper-toolbar>
-
-        <div class="content">
-          <div id="user-page"></div>
-          <div id="group-page"></div>
-        </div>
-
+        <div class="content"></div>
       </paper-scroll-header-panel>
     </div>
 
     <div id ="createPayment">
-          <paper-scroll-header-panel>
-
-          <paper-toolbar>
-
-            <paper-icon-button icon="arrow-back" class="backToGroupListPeople"></paper-icon-button>
-              <div  class="flex title">Create Payment</div>
-            <paper-icon-button icon="check" class="confirmPaymentCreation"></paper-icon-button>
-          </paper-toolbar>
-
-          <div class="content">
-            <paper-input label="Name of Transaction" type=""></paper-input>
-            <paper-input label="Amount of Transaction" type="number">Amount of Trasaction</paper-input>            
-          </div>
-
-        </paper-scroll-header-panel>
+      <paper-scroll-header-panel>
+        <paper-toolbar>
+          <paper-icon-button icon="arrow-back" class="backToGroupListPeople"></paper-icon-button>
+            <div class="flex title">Create Payment</div>
+          <paper-icon-button icon="check" class="confirmPaymentCreation"></paper-icon-button>
+        </paper-toolbar>
+        <div class="content">
+          <paper-input label="Name of Transaction" type=""></paper-input>
+          <paper-input label="Amount of Transaction" type="number">Amount of Trasaction</paper-input>            
+        </div>
+      </paper-scroll-header-panel>
     </div>
 
     <div id ="createGroup">
@@ -185,20 +149,14 @@
           <div  class="flex title">Create Group</div>
           <paper-icon-button icon="check" class="backToGroupHome"></paper-icon-button>
         </paper-toolbar>
-
         <div class="content">
-          <paper-input label="Enter Group Name"></paper-input>
-
-          <section class="layout vertical">
-            <div class="header paper-font-title">Alice in Wonderland</div>
-            <paper-dialog-scrollable class="flex paper-font-body1">
-            asdflkajsdlfkjasdf asdfadsfasdfasdfasdf      asdflkajsdlfkjasdf asdflkajsdlfkjasdf
-            </paper-dialog-scrollable>
-            <div class="footer paper-font-subhead">Lewis Carroll</div>
-          </section>
+          <form is="iron-form" method="post" id="group-creation-form" action="idk-what-it-is">
+            <paper-input label="Enter Group Name"></paper-input>
+            <section id="create-group-person-list" class="person-list-container"></section>
+          </form>
         </div>
       </paper-header-panel>
-
+    </div>
   </iron-pages>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
