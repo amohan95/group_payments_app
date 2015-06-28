@@ -1,27 +1,17 @@
 <link rel="import" href="../bower_components/paper-material/paper-material.html">
 
 <dom-module id="user-card">
-  <style>
-    .user-card-content {
-      padding: 1%;
-    }
-
-    .user-card-circular-photo {
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-    }
-  </style>
-
   <template>
     <div class="user-card-outer card">
       <paper-material elevation="2">
-        <div class="user-card-content">
+        <div class="card-content">
           <div style="display:inline-block">
-            <img class="user-card-circular-photo" src="{{photo_url}}" />
+            <img class="circular-photo" src="{{photo_url}}" />
           </div>
           <div style="display:inline-block;margin-left:2%;">
             <div class="user-card-username card-title">{{username}}</div>
             <div class="user-card-transaction-total card-subtitle">$<span>{{transaction_total}}</span></div>
+            <div class="user-card-description card-subtitle">{{description}}</div>
           </div>
         </div>
       </paper-material>
@@ -35,11 +25,15 @@
         username: String,
         photo_url: String,
         transaction_total: Number,
+        description: "",
       },
-      factoryImpl: function(username, photo_url, transaction_total) {
+      factoryImpl: function(username, photo_url, transaction_total, description) {
         this.username = username;
         this.photo_url = photo_url;
         this.transaction_total = transaction_total;
+        if(description) {
+          this.description = description;
+        }
       }
     });
   </script>

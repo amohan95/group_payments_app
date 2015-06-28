@@ -35,8 +35,7 @@
   function updateHomeSuccessfulLogin() {
 
     FB.api('/me', function(response) {
-        document.getElementById('welcome-message').innerHTML = 'Welcome ' + response.name + '!';
-        document.getElementById('welcome-message').align = 'Welcome ' + response.name + '!';
+        console.log(response);
     });
   }
 
