@@ -51,7 +51,7 @@ module API
         route_param :id do
           desc "Removes a transaction."
           delete do
-            transaction = Transactions.find_by(route_param)
+            transaction = UserTransaction.find(params[:id])
             transaction.destroy
           end
         end
