@@ -8,6 +8,10 @@
   margin: 2% 3% 2% 3%;
 }
 
+.card:hover {
+  cursor: pointer;
+}
+
 .card-title {
   font-size: 24px;
   font-weight: bold;
