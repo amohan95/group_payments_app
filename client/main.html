@@ -71,7 +71,7 @@
 <![endif]-->
   <script src="js/customFB.js"></script>
 
-  <iron-pages selected= "6">
+  <iron-pages selected= "5">
     <div id="groupsHome">
           <paper-scroll-header-panel>
 
@@ -167,12 +167,12 @@
 
             <paper-icon-button icon="arrow-back" class="backToGroupListPeople"></paper-icon-button>
               <div  class="flex title">Create Payment</div>
-            <paper-icon-button icon="check" id ="confirmPaymentCreation"></paper-icon-button>
+            <paper-icon-button icon="check" class="confirmPaymentCreation"></paper-icon-button>
           </paper-toolbar>
 
           <div class="content">
-            <div id="user-page"></div>
-            <div id="group-page"></div>
+            <paper-input label="Name of Transaction" type=""></paper-input>
+            <paper-input label="Amount of Transaction" type="number">Amount of Trasaction</paper-input>            
           </div>
 
         </paper-scroll-header-panel>

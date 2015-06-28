@@ -20,9 +20,46 @@ $(document).ready(function() {
 $(document).on('fb-ready', function(response) {
   FB.api('/me/picture?type=large', function(response) {
     var imgURL = response.data.url;
+    console.log(imgURL);
+    console.log(response);
+    //card creation happens here passing in image url
+  });
+  FB.api('/me', function(response) {
+    console.log(response.first_name);
     //card creation happens here passing in image url
   });
 });
+
+function getFBFriendsPhotos(listNames) {
+  var listFriends = [];
+  
+  for(i=0; i < listNames.length; i++) {
+    var string = "/";
+    var stringTwo = "/picture?type=large";
+    var combinedUserString = string.concat(listNames[i]);
+
+    var personData = null;
+    FB.api(combinedString, function(response) {
+          if (response && !response.error) {
+            console.log("Response " + response.data);
+            listFriendsPhotos.push(response.data.url)
+            personData["firstName"] = response.first_name;
+            personData["lastName"] = response.last_name;
+          }
+          
+        });
+
+      var combinedPictureString = combinedUserString.concat(stringTwo);
+      FB.api(combinedPictureString, function(response) {
+          if (response && !response.error) {
+            console.log("Response " + response.data);
+            personData["pictureURL"] = response.data.url;
+          }
+          
+        });
+      listFriends.push(personData);
+  }
+}
 
 function createStupidThings() {
   var el = new createNewUserCard("Ananth Mohan", "./../img/ananth-profile.jpg", -500);
