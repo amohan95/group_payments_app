@@ -118,3 +118,55 @@ function convertAmount(cents) {
   }
   return ["$", [dollars, decimal].join(".")].join("");
 }
+
+// Send Create Group Request
+$('#create-group').click(function() {
+  var groupName = '';
+  var userList = [];
+
+  return $.ajax({
+    type: type,
+    url: url,
+    data: {id: localStorage['user_id'], name: groupName, users: userList},
+    success: function(data) {
+      $("#group-page").clear();
+      data.group_list.forEach(function(group) {
+        $("#group-page").append(createNewGroupCard(group.name, "./../img/ananth-profile.jpg",
+                                            50, 500, group.users));
+      });
+    }
+      ,
+    error: error,
+    statusCode: {
+      401: function() {
+        window.open("index.html", "_self");
+      }
+    }
+  });
+});
+
+// Get Users
+$('#create-group').click(function() {
+  var groupName = '';
+
+  return $.ajax({
+    type: type,
+    url: url,
+    data: {name: groupName},
+    success: function(groupList) {
+      $("#group-page").clear();
+      for group in groupList {
+        $("#group-page").append(createNewGroupCard(group.name, "./../img/ananth-profile.jpg",
+                                            50, 500, group.users));
+      }
+    }
+      ,
+    error: error,
+    statusCode: {
+      401: function() {
+        window.open("index.html", "_self");
+      }
+    }
+  });
+});
+

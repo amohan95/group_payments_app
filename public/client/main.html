@@ -146,13 +146,13 @@
       <paper-header-panel>
         <paper-toolbar>
           <paper-icon-button class="backToGroupHome" icon="arrow-back"></paper-icon-button>
-          <div  class="flex title">Create Group</div>
-          <paper-icon-button icon="check" class="backToGroupHome"></paper-icon-button>
+          <div class="flex title">Create Group</div>
+          <paper-icon-button id="create-group" icon="check" class="backToGroupHome"></paper-icon-button>
         </paper-toolbar>
         <div class="content">
-          <form is="iron-form" method="post" id="group-creation-form" action="idk-what-it-is">
-            <paper-input label="Enter Group Name"></paper-input>
-            <section id="create-group-person-list" class="person-list-container"></section>
+          <form is="iron-form" id="groupName" method="post" id="group-creation-form" action="idk-what-it-is">
+              <paper-input name="name" label="Enter Group Name"></paper-input>
+              <section id="create-group-person-list" class="person-list-container"></section>
           </form>
         </div>
       </paper-header-panel>
