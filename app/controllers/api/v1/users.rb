@@ -12,12 +12,14 @@ module API
                 'in the group'
             end
             get do
-              if (defined? params[:other_user]) 
-                other_user = params[:other_user]
-                current_user.user_transactions.find_by(other_user: other_user) +
-                  current_user.other_user_transactions.find_by(user: other_user)
-              else 
-                current_user.user_transactions + other_user_transactions
+              if params[:other_user]
+                user_transactions = UserTransaction.where('user_id=? AND' \
+                  ' other_user_id=? OR user_id=? AND other_user_id=?',
+                  current_user.id, params[:other_user],
+                  params[:other_user], current_user.id)
+              else
+                user_transactions = UserTransaction.where('user_id=? OR' \
+                  ' other_user_id=?', current_user.id, current_user.id)
               end
             end
           end

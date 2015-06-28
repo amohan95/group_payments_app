@@ -73,7 +73,7 @@ module API
             end
             get do
               if params[:other_user]
-                user_transactions = UserTransaction.where('user_id=? AND' \
+                user_transactions = UserTransaction.where('user_id=? AND ' \
                   'other_user_id=? OR user_id=? AND other_user_id=?',
                   current_user.id, params[:other_user],
                   params[:other_user], current_user.id)
