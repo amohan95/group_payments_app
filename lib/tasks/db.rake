@@ -4,7 +4,7 @@ namespace :db do
     # Create Users
     users = Array.new
 
-    users << User.create(fb_user_id: '10203009590600581')
+    users << User.create(fb_user_id: '10203053400335797')
     users << User.create(fb_user_id: '10203301711458366')
     users << User.create(fb_user_id: '10205550602177945')
     users << User.create(fb_user_id: '10203853153025643')
