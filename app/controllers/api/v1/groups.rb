@@ -16,7 +16,7 @@ module API
           # stub
         end
 
-        # /groups/:id
+        # /groups/:id/
         params do
           requires :id, type: Integer, desc: 'The id of the group'
         end
@@ -45,6 +45,7 @@ module API
             # stub
           end
 
+          # /groups/:id/transactions/
           resource :transactions do
             desc 'Retrieves all transactions for the specified group'
             params do
