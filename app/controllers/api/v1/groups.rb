@@ -7,12 +7,13 @@ module API
         # /groups/
         desc 'Create a new group'
         params do
-          requires :users, type: Array[Integer], desc: 'A list of users that' \
+          optional :users, type: Array[Integer], desc: 'A list of users that' \
             'will be a part of the group'
           optional :name, type: String, desc: 'A name that identifies the' \
             ' group', allow_blank: false
         end
         post do
+          puts params.inspect
           if params[:name]
             group = Group.create(name: params[:name])
           else
@@ -80,6 +81,7 @@ module API
                 user_transactions = UserTransaction.where('user_id=? OR' \
                   ' other_user_id=?', current_user.id, current_user.id)
               end
+              puts user_transactions.pluck(:id)
               GroupTransaction.where(id: user_transactions.pluck(:id))
             end
           end
