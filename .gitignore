@@ -21,3 +21,5 @@ config/application.yml
 # Ignore text editor backup files
 *.swp
 
+client/bower_components/
+.DS_Store
