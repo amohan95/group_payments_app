@@ -2,6 +2,39 @@
 
 /* CUSTOM STYLES */
 
+@media (min-width: 600px) {
+  .circular-photo {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .card-subtitle {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 600px) {
+  .circular-photo {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .card-subtitle {
+    font-size: 14px;
+  }
+}
+
 .card {
   display: block;
   position: relative;
@@ -16,13 +49,18 @@
   padding: 1%;
 }
 
-.card-title {
-  font-size: 24px;
-  font-weight: bold;
+.card-content-text {
+  display: inline-block;
+  margin-left: 2%;
+  vertical-align: middle;
 }
 
-.card-subtitle {
-  font-size: 18px;
+.card-transaction-positive {
+  color: green;
+}
+
+.card-transaction-negative {
+  color: red;
 }
 
 .circular-photo {

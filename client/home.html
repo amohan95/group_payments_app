@@ -15,13 +15,14 @@
   <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
   <link rel="import" href="bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
-  <link rel="import" href="sample-content.html">
 
-  <link rel="import" href="dom_modules/user-card.html">
+  <link rel="import" href="dom_modules/event-card.html">
   <link rel="import" href="dom_modules/group-card.html">
+  <link rel="import" href="dom_modules/user-card.html">
   <!--                          END IMPORTS                        -->
 
   <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+  <script src="js/customFB.js"></script>
 
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/main.css">
@@ -60,14 +61,12 @@
     }
 
   </style>
-
 </head>
 <body fullbleed vertical layout>
 <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-  <script src="js/customFB.js"></script>
-
+  <div id="fb-root"></div>
   <paper-scroll-header-panel>
 
     <paper-toolbar>
@@ -80,6 +79,7 @@
     <div class="content">
       <div id="user-page"></div>
       <div id="group-page"></div>
+      <div id="event-page"></div>
     </div>
 
   </paper-scroll-header-panel>
