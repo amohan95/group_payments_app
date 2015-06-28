@@ -16,6 +16,7 @@
   <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="bower_components/paper-input/paper-input.html">
   <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
   <link rel="import" href="bower_components/iron-form/iron-form.html">
   <link rel="import" href="bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="bower_components/iron-pages/iron-pages.html">
@@ -65,6 +66,30 @@
       @apply(--layout-center);
     }
 
+    paper-tabs {
+      background-color: #00bcd4;
+      color: #fff;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    paper-toolbar paper-tabs {
+      box-shadow: none;
+    }
+
+    paper-tabs[noink][no-bar] paper-tab.iron-selected {
+      color: #ffff8d;
+    }
+
+    paper-tabs[alignBottom] {
+      box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 400;
+      padding-top: 20px;
+    }      
+
   </style>
 
 </head>
@@ -73,37 +98,40 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
   <div id="fb-root"></div>
-
-  <iron-pages selected="6">
+  <div class="loading-area">
+    <div class="loading-animation">
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
+      <div class="box4"></div>
+    </div>
+  </div>
+  </div>
+  <iron-pages selected="1">
     <div id="groupsHome">
       <paper-scroll-header-panel>
         <paper-toolbar>
           <paper-icon-button icon="settings"></paper-icon-button>
-          <div id="welcome-message" class="flex title">My Groups</div>
-          <paper-icon-button icon="add" class="toCreateGroup"></paper-icon-button>
+          <div id="groups-home-message" class="flex title">My Groups</div>
+          <paper-icon-button icon="add" data-link-to="6" class="toCreateGroup"></paper-icon-button>
         </paper-toolbar>
         <div class="content"></div>
       </paper-scroll-header-panel>
     </div>
 
-    <div id="groupListPeople">
+    <div id="groupListPeopleAndEvents">
       <paper-scroll-header-panel>
         <paper-toolbar>
-          <paper-icon-button icon="arrow-back" class="backToGroupHome"></paper-icon-button>
+          <paper-icon-button icon="arrow-back" data-link-to="0" class="backToGroupHome"></paper-icon-button>
           <div class="flex title">INSERT GROUP NAME</div>
-          <paper-icon-button icon="add" id =""></paper-icon-button>
+          <paper-icon-button icon="add" data-link-to="5"></paper-icon-button>
         </paper-toolbar>
-        <div class="content"></div>
-      </paper-scroll-header-panel>
-    </div>
 
-    <div id ="groupListEvents">
-      <paper-scroll-header-panel>
-        <paper-toolbar>
-          <paper-icon-button icon="arrow-back" class="backToGroupHome"></paper-icon-button>
-          <div class="flex title">Insert GROUP NAME</div>
-          <paper-icon-button icon="add" class="toCreatePayment"></paper-icon-button>
-        </paper-toolbar>
+        <paper-tabs selected="0" noink>
+          <paper-tab>People</paper-tab>
+          <paper-tab>Events</paper-tab>
+        </paper-tabs>
+
         <div class="content"></div>
       </paper-scroll-header-panel>
     </div>
