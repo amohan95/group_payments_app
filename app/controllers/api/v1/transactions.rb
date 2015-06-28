@@ -5,14 +5,19 @@ module API
       resource :transactions do
       	desc "Creates a new transaction."
       	params do
-      		requires :group_id, type: String, desc: "Group ID", allow_blank: false
-      		requires :description, type: String, desc: "Transaction description", allow_blank: false
-    		  requires :transaction_map, type: Hash, desc: "Transaction map", allow_blank: false do
-				    requires :user_id, type: String, desc: "User ID", allow_blank: false
-				    requires :amount, type: Integer, desc: "Charge amount", allow_blank: false
+      		requires :group_id, type: String, desc: "Group ID", \
+      			allow_blank: false
+      		requires :description, type: String, desc: "Transaction " \ 
+      			"description", allow_blank: false
+    			requires :transaction_map, type: Hash, desc: "Transaction map", \
+    		   	allow_blank: false do
+						requires :user_id, type: String, desc: "User ID", \
+							allow_blank: false
+				  	requires :amount, type: Integer, desc: "Charge amount", \
+				  		allow_blank: false
 				  end
       	end
-      	postg do
+      	post do
       		#stub
       	end
 
@@ -20,9 +25,12 @@ module API
       	route_param :id do
 	      	desc "Edits a transaction."
 	      	params do
-	      		requires :transaction_map, type: Hash, desc: "Transaction map", allow_blank: false do
-				    	requires :user_id, type: String, desc: "User ID", allow_blank: false
-				    	requires :amount, type: Integer, desc: "Charge amount", allow_blank: false
+	      		requires :transaction_map, type: Hash, desc: "Transaction map", \
+	      		 	allow_blank: false do
+				    	requires :user_id, type: String, desc: "User ID", \
+				    		allow_blank: false
+				    	requires :amount, type: Integer, desc: "Charge amount", \
+				    		allow_blank: false
 				  	end
 	      	end
 	      	put do
