@@ -1,7 +1,7 @@
 <link rel="import" href="../bower_components/paper-material/paper-material.html">
 
 <dom-module id="group-card">
-  <style>
+  <style is="custom-style">
     .group-card-members {
       display: flex;
       width: 100%;
@@ -26,9 +26,10 @@
           <div style="display:inline-block">
             <img class="circular-photo" src="{{photo_url}}" />
           </div>
-          <div style="display:inline-block;margin-left:2%;">
+          <div class="card-content-text">
             <div class="group-card-group-name card-title">{{group_name}}</div>
-            <div class="group-card-transaction-total card-subtitle"></div>
+            <div class="group-card-owed-to-me card-subtitle"><span class="card-transaction-positive">{{total_owed_from}}</span></div>
+            <div class="group-card-i-owe card-subtitle"><span class="card-transaction-negative">{{total_owed_to}}</span></div>
           </div>
         </div>
         <div class="group-card-members">
@@ -39,6 +40,7 @@
           </div>
         </div>
       </paper-material>
+      <paper-ripple recenters></paper-ripple>
     </div>
   </template>
 
@@ -48,8 +50,8 @@
     properties: {
       group_name: String,
       photo_url: String,
-      total_owed_to: Number,
-      total_owed_from: Number,
+      total_owed_to: String,
+      total_owed_from: String,
       group_member_names: Array
     },
     factoryImpl: function(group_name, photo_url, total_owed_to, total_owed_from, group_member_names) {
@@ -59,6 +61,6 @@
       this.total_owed_from = total_owed_from;
       this.group_member_names = group_member_names;
     }
-  })
+  });
   </script>
 </dom-module>

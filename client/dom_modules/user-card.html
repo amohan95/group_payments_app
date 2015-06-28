@@ -1,4 +1,5 @@
 <link rel="import" href="../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../bower_components/paper-ripple/paper-ripple.html">
 
 <dom-module id="user-card">
   <template>
@@ -8,13 +9,14 @@
           <div style="display:inline-block">
             <img class="circular-photo" src="{{photo_url}}" />
           </div>
-          <div style="display:inline-block;margin-left:2%;">
+          <div class="card-content-text">
             <div class="user-card-username card-title">{{username}}</div>
-            <div class="user-card-transaction-total card-subtitle">$<span>{{transaction_total}}</span></div>
+            <div class="card-transaction-total card-subtitle">{{transaction_total}}</div>
             <div class="user-card-description card-subtitle">{{description}}</div>
           </div>
         </div>
       </paper-material>
+      <paper-ripple recenters></paper-ripple>
     </div>
   </template> 
 
@@ -24,16 +26,20 @@
       properties: {
         username: String,
         photo_url: String,
-        transaction_total: Number,
+        transaction_total: String,
+        is_negative: Boolean,
         description: "",
       },
-      factoryImpl: function(username, photo_url, transaction_total, description) {
+      factoryImpl: function(username, photo_url, transaction_total, is_negative, description) {
         this.username = username;
         this.photo_url = photo_url;
         this.transaction_total = transaction_total;
+        this.is_negative = is_negative;
         if(description) {
           this.description = description;
         }
+        this.$$(".card-transaction-total").classList.add(("card-transaction-"
+                                      + (this.is_negative ? "negative" : "positive")));
       }
     });
   </script>
