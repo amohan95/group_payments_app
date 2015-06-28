@@ -18,8 +18,9 @@ $(document).ready(function() {
 });
 
 $(document).on('fb-ready', function(response) {
-  FB.api("/me/picture", function(response) {
-
+  FB.api('/me/picture?type=large', function(response) {
+    var imgURL = response.data.url;
+    //card creation happens here passing in image url
   });
 });
 
