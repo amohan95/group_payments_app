@@ -1,0 +1,73 @@
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
+
+<dom-module id="group-card">
+  <style>
+    .group-card-content {
+      padding: 1%;
+    }
+
+    .group-card-circular-photo {
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+    }
+
+    .group-card-members {
+      display: flex;
+      width: 100%;
+      background: #F7F7F7;
+      padding: 10px 0 10px 0;
+      text-align: center;
+    }
+
+    .group-card-text {
+      width: 95%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;      
+      min-width: 0;
+    }
+  </style>
+
+  <template>
+    <div class="group-card-outer card">
+      <paper-material elevation="2">
+        <div class="group-card-content">
+          <div style="display:inline-block">
+            <img class="group-card-circular-photo" src="{{photo_url}}" />
+          </div>
+          <div style="display:inline-block;margin-left:2%;">
+            <div class="group-card-group-name card-title">{{group_name}}</div>
+            <div class="group-card-transaction-total card-subtitle"></div>
+          </div>
+        </div>
+        <div class="group-card-members">
+          <div class="group-card-text">
+            <template is="dom-repeat" class="group-card-members-list" items="{{group_member_names}}">
+              <span style="margin-right: 5px;">{{item}}</span>
+            </template>
+          </div>
+        </div>
+      </paper-material>
+    </div>
+  </template>
+
+  <script>
+  GroupCard = Polymer({
+    is: 'group-card',
+    properties: {
+      group_name: String,
+      photo_url: String,
+      total_owed_to: Number,
+      total_owed_from: Number,
+      group_member_names: Array
+    },
+    factoryImpl: function(group_name, photo_url, total_owed_to, total_owed_from, group_member_names) {
+      this.group_name = group_name;
+      this.photo_url = photo_url;
+      this.total_owed_to = total_owed_to;
+      this.total_owed_from = total_owed_from;
+      this.group_member_names = group_member_names;
+    }
+  })
+  </script>
+</dom-module>
