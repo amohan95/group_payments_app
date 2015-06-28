@@ -1,27 +1,76 @@
 $(document).ready(function() { 
-
   $(".backToGroupHome").click(function() {
     var pages = document.querySelector('iron-pages');
-      pages.select(0);
+    pages.select(0);
   });
 
   $(".backToGroupListEvents").click(function() {
     var pages = document.querySelector('iron-pages');
-      pages.select(2);
+    pages.select(2);
   });
 
   $(".backToGroupListEvents").click(function() {
     var pages = document.querySelector('iron-pages');
-      pages.select(1);
+    pages.select(1);
   });
 
+  var ananth = {
+    name: "Ananth Mohan",
+    img_url: "../img/ananth-profile.jpg",
+    person_id: "102938123098"
+  }
+
+  var ananths = [];
+  for(var i = 0; i < 10; ++i) {
+    ananths.push(ananth);
+  }
+
+  $("#create-group-person-list").append(new PersonList(ananths));
 });
 
 $(document).on('fb-ready', function(response) {
-  FB.api("/me/picture", function(response) {
-
+  FB.api('/me/picture?type=large', function(response) {
+    var imgURL = response.data.url;
+    console.log(imgURL);
+    console.log(response);
+    //card creation happens here passing in image url
   });
+  FB.api('/me', function(response) {
+    console.log(response.first_name);
+    //card creation happens here passing in image url
+  });
+
+  
 });
+
+function getFBFriendsPhotos(listNames) {
+  var listFriends = [];
+  
+  for(i=0; i < listNames.length; i++) {
+    var string = "/";
+    var stringTwo = "/picture?type=large";
+    var combinedUserString = string.concat(listNames[i]);
+
+    var personData = {};
+    FB.api(combinedString, function(response) {
+      if (response && !response.error) {
+        console.log("Response " + response.data);
+        listFriendsPhotos.push(response.data.url)
+        personData["firstName"] = response.first_name;
+        personData["lastName"] = response.last_name;
+      }   
+    });
+
+    var combinedPictureString = combinedUserString.concat(stringTwo);
+    FB.api(combinedPictureString, function(response) {
+      if (response && !response.error) {
+        console.log("Response " + response.data);
+        personData["pictureURL"] = response.data.url;
+      }
+    });
+    listFriends.push(personData);
+  }
+}
 
 function createStupidThings() {
   var el = new createNewUserCard("Ananth Mohan", "./../img/ananth-profile.jpg", -500);
@@ -32,7 +81,7 @@ function createStupidThings() {
                                         50, 500, ["Bananthus", "Binuantoiwe", "Hitler", "AlsoAnanth",
                                         "NotAnantyh"]));
 
-  $("#event-page").append(createNewEventCard("Stupid Event", true));  
+  $("#event-page").append(createNewEventCard("Stupid Event", true));
 }
 
 function createNewEventCard(event_name, has_unresolved_debts) {

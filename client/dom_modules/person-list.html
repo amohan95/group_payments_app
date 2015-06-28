@@ -1,0 +1,31 @@
+<link rel="import" href="../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
+<link rel="import" href="person-list-element.html">
+<link rel="import" href="../bower_components/paper-styles/paper-styles.html">
+
+<dom-module id="person-list">
+  <style>
+    .list-limited-style {
+      size: 400px;
+      overflow-y:hidden;
+    }
+  </style>
+  <template>
+    <div class="list-limited-size">
+      <template is="dom-repeat" items="{{people}}">
+        <person-list-element name="{{item.name}}" img_url="{{item.img_url}}" person_id="{{item.person_id}}"></person-list-element>
+      </template>
+    </div>
+  </template>
+
+  <script>
+    PersonList = Polymer({
+      is: 'person-list',
+      properties: {
+        people: Array
+      },
+      factoryImpl(people) {
+        this.people = people;
+      }
+    });
+  </script>
+</dom-module>
