@@ -9,6 +9,7 @@ $app->post('/groups/', function() {
 });
 
 $app->get('/groups/:id', function($id) {
+  return json_encode(array(GetGroups($id)));
 });
 
 $app->put('/groups/:id', function($id) {
