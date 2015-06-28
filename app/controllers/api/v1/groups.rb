@@ -77,8 +77,8 @@ module API
                   current_user.id, params[:other_user],
                   params[:other_user], current_user.id)
               else
-                user_transactions = GroupTransaction.where('user_id=? OR' \
-                  'other_user_id=?', current_user.id, current_user.id)
+                user_transactions = UserTransaction.where('user_id=? OR' \
+                  ' other_user_id=?', current_user.id, current_user.id)
               end
               GroupTransaction.where(id: user_transactions.pluck(:id))
             end
