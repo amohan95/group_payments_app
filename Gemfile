@@ -28,3 +28,4 @@ gem 'sqlite3'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem 'omniauth-facebook'
+gem 'grape'
