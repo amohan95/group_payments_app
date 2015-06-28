@@ -23,3 +23,5 @@ config/application.yml
 
 client/bower_components/
 .DS_Store
+
+public/client/bower_components
