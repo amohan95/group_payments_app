@@ -12,7 +12,27 @@ module API
     		   	allow_blank: false
       	end
       	post do
-      		#stub
+          map = params[:transaction_map]
+          gt = GroupTransaction.create(
+            purpose: params[:description],
+            group: current_user.groups.find_by(params[:group_id]),
+            user: current_user
+          )
+
+          user_transactions = Array.new
+
+          map.each_pair do |key, value|
+            user_transactions << UserTransaction.create(
+              amount: value,
+              settled: false,
+              group_transaction: gt,
+              user: current_user,
+              other_user: key
+            )
+          end
+
+          gt.user_transactions = user_transactions
+          gt.save
       	end
 
 
@@ -23,7 +43,7 @@ module API
 	      		 	allow_blank: false
 	      	end
 	      	put do
-	      		#stub
+            #stub
 	      	end
 	      end
 
@@ -31,7 +51,8 @@ module API
 	      route_param :id do
 	      	desc "Removes a transaction."
 	      	delete do
-	      		#stub
+	      		transaction = Transactions.find_by(route_param)
+            transaction.destroy
 	      	end
 	      end
       end

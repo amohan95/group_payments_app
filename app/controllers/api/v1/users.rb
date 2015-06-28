@@ -12,7 +12,13 @@ module API
                 'in the group'
             end
             get do
-              # stub
+              if (defined? params[:other_user]) 
+                other_user = params[:other_user]
+                current_user.user_transactions.find_by(other_user: other_user) +
+                  current_user.other_user_transactions.find_by(user: other_user)
+              else 
+                current_user.user_transactions + other_user_transactions
+              end
             end
           end
         end
