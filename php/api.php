@@ -28,6 +28,8 @@ $app->put('/transactions/:id', function($id) {
 $app->delete('/transaction/:id', function($id) {
 });
 
+$app->get('/users/:id/transactions', function($id) {
+});
 
 $app->run();
 ?>
