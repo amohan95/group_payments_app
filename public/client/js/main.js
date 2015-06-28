@@ -4,19 +4,14 @@ $(document).ready(function() {
     pages.select(0);
   });
 
-  $(".backToGroupListEvents").click(function() {
-    var pages = document.querySelector('iron-pages');
-    pages.select(2);
-  });
-
-  $(".backToGroupListEvents").click(function() {
+  $(".backToGroupDetail").click(function() {
     var pages = document.querySelector('iron-pages');
     pages.select(1);
   });
 
   $(".toCreateGroup").click(function() {
     var pages = document.querySelector('iron-pages');
-    pages.select(6);    
+    pages.select(5);    
   });
 
   var ananth = {
@@ -30,7 +25,19 @@ $(document).ready(function() {
     ananths.push(ananth);
   }
 
-  $("#create-group-person-list").append(new PersonList(ananths));
+
+  $(".person-list-container").each(function() {
+
+    $(this).append(new PersonList(ananths));  
+  });
+
+
+
+
+
+
+
+
 });
 
 $(document).on('fb-ready', function(response) {

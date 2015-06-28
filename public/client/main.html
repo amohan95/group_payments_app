@@ -107,13 +107,13 @@
     </div>
   </div>
   </div>
-  <iron-pages selected="1">
+  <iron-pages selected="4">
     <div id="groupsHome">
       <paper-scroll-header-panel>
         <paper-toolbar>
           <paper-icon-button icon="settings"></paper-icon-button>
           <div id="groups-home-message" class="flex title">My Groups</div>
-          <paper-icon-button icon="add" data-link-to="6" class="toCreateGroup"></paper-icon-button>
+          <paper-icon-button icon="add" data-link-to="5" class="toCreateGroup"></paper-icon-button>
         </paper-toolbar>
         <div class="content"></div>
       </paper-scroll-header-panel>
@@ -139,7 +139,7 @@
     <div id ="peopleHistory">
       <paper-scroll-header-panel>
         <paper-toolbar>
-          <paper-icon-button icon="arrow-back" class="backToGroupListPeople"></paper-icon-button>
+          <paper-icon-button icon="arrow-back" class="backToGroupDetail"></paper-icon-button>
           <div class="flex title">INSERT PERSON's NAME</div>
         </paper-toolbar>
         <div class="content"></div>
@@ -149,7 +149,7 @@
     <div id ="eventHistory">
       <paper-scroll-header-panel>
         <paper-toolbar>
-          <paper-icon-button icon="arrow-back" class="backToGroupListEvents"></paper-icon-button>
+          <paper-icon-button icon="arrow-back" class="backToGroupDetail"></paper-icon-button>
           <div class="flex title">INSERT EVENT NAME</div>
         </paper-toolbar>
         <div class="content"></div>
@@ -159,13 +159,16 @@
     <div id ="createPayment">
       <paper-scroll-header-panel>
         <paper-toolbar>
-          <paper-icon-button icon="arrow-back" class="backToGroupListPeople"></paper-icon-button>
+          <paper-icon-button icon="arrow-back" class="backToGroupDetail"></paper-icon-button>
             <div class="flex title">Create Payment</div>
           <paper-icon-button icon="check" class="confirmPaymentCreation"></paper-icon-button>
         </paper-toolbar>
         <div class="content">
-          <paper-input label="Name of Transaction" type=""></paper-input>
-          <paper-input label="Amount of Transaction" type="number">Amount of Trasaction</paper-input>            
+          <form is="iron-form" method="post" id="group-creation-form" action="idk-what-it-is">
+              <paper-input label="Name of Transaction" type=""></paper-input>
+              <paper-input label="Amount of Transaction" type="number">Amount of Trasaction</paper-input>
+              <section class="person-list-container"></section> 
+          </form>
         </div>
       </paper-scroll-header-panel>
     </div>
@@ -175,12 +178,12 @@
         <paper-toolbar>
           <paper-icon-button class="backToGroupHome" icon="arrow-back"></paper-icon-button>
           <div  class="flex title">Create Group</div>
-          <paper-icon-button icon="check" class="backToGroupHome"></paper-icon-button>
+          <paper-icon-button icon="check" id="submitNewGroup"></paper-icon-button>
         </paper-toolbar>
         <div class="content">
-          <form is="iron-form" method="post" id="group-creation-form" action="idk-what-it-is">
-            <paper-input label="Enter Group Name"></paper-input>
-            <section id="create-group-person-list" class="person-list-container"></section>
+          <form is="iron-form" method="post" action="idk-what-it-is">
+            <paper-input label="Enter Group Name" value="{{valHeader}}"></paper-input>
+            <section class="person-list-container"></section>
           </form>
         </div>
       </paper-header-panel>
