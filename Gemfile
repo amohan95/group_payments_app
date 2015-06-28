@@ -29,3 +29,5 @@ gem 'sqlite3'
 
 gem 'omniauth-facebook'
 gem 'grape'
+gem 'grape-active_model_serializers'
+gem 'figaro'
