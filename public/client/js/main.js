@@ -25,19 +25,9 @@ $(document).ready(function() {
     ananths.push(ananth);
   }
 
-
   $(".person-list-container").each(function() {
-
     $(this).append(new PersonList(ananths));  
   });
-
-
-
-
-
-
-
-
 });
 
 $(document).on('fb-ready', function(response) {
@@ -164,14 +154,13 @@ $('#create-group').click(function() {
     type: type,
     url: url,
     data: {name: groupName},
-    success: function(groupList) {
+    success: function(data) {
       $("#group-page").clear();
-      for group in groupList {
+      data.group_list.forEach(function(group) {
         $("#group-page").append(createNewGroupCard(group.name, "./../img/ananth-profile.jpg",
                                             50, 500, group.users));
-      }
-    }
-      ,
+      });
+    },
     error: error,
     statusCode: {
       401: function() {
