@@ -5,6 +5,7 @@ require __DIR__ . '/functions.php';
 $app = new \Slim\Slim();
 
 $app->post('/groups/', function() {
+  
 });
 
 $app->get('/groups/:id', function($id) {
