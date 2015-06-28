@@ -101,7 +101,24 @@ function getUserTransactionsWith($user, $other_user_id) {
 function getUser($facebook_hash) {
   $db = new SQLite3('development.sqlite3');
   $stmt = $db->prepare('SELECT * FROM users WHERE fb_user_id = :fb_id;');
-  $stmt->bindValue('');
+  $stmt->bindValue('fb_id', $facebook_hash['uid'], SQLITE_TEXT);
+  $result = $stmt->execute();
+  if ($result) {
+    if ($row = $result->fetchArray()) {
+      return $row;
+    } else {
+      $stmt = $db->prepare('INSERT INTO users (fb_user_id) VALUES (:fb_id);');
+      $stmt->bindValue('fb_id', $facebook_hash['uid'], SQLITE_TEXT);
+      $result = $stmt->execute();
+      if ($result) {
+        return array('id' => $db->lastInsertRowID);
+      } else {
+        return null;
+      }
+    }
+  } else {
+    return null;
+  }
 }
 
 ?>
