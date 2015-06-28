@@ -2,3 +2,5 @@
 
 require ::File.expand_path('../config/environment', __FILE__)
 run Rails.application
+
+use Rack::Session::Cookie, :secret => ENV['COOKIE_SECRET'] || ''
