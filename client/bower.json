@@ -17,7 +17,9 @@
     "polymer": "Polymer/polymer#^1.0.0",
     "gold-elements": "PolymerElements/gold-elements#~1.0.1",
     "neon-elements": "PolymerElements/neon-elements#~1.0.0",
-    "iron-elements": "PolymerElements/iron-elements#~1.0.1"
+    "iron-elements": "PolymerElements/iron-elements#~1.0.1",
+    "urban-login": "mattstyles/urban-login#master",
+    "paper-elements": "PolymerElements/paper-elements#~1.0.1"
   },
   "resolutions": {
     "webcomponentsjs": "0.7.5",
@@ -41,6 +43,14 @@
     "paper-spinner": "^1.0.0",
     "paper-tabs": "^1.0.0",
     "paper-toast": "^1.0.0",
-    "paper-toggle-button": "^1.0.0"
+    "paper-toggle-button": "^1.0.0",
+    "core-component-page": "^0.5",
+    "core-icons": "^0.5",
+    "core-icon": "^0.5",
+    "core-iconset": "^0.5",
+    "core-meta": "^0.5",
+    "core-iconset-svg": "^0.5",
+    "paper-shadow": "^0.5",
+    "polymer-test-tools": "^0.5"
   }
 }
