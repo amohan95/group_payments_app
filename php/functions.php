@@ -1,16 +1,35 @@
 <?php
+function CreateGroup($id, $group_name, $group_members) {
+  $db = new SQLite3('development.sqlite3');
+  $stmt = $db->prepare('INSERT INTO groups (name, created_at, updated_at, user_id, group_id)
+    VALUES (:group_name, NOW(), NOW(), :id, 10)');
+  $stmt->bind('group_name', $group_name, SQLITE3_TEXT);
+  $stmt->bind('id', $id, SQLITE3_TEXT);
+  $stmt->execute();
+  foreach ($group_members as $member) {
+    $stmt = $db->prepare('INSERT INTO user_groups (user_id, group_id)
+      VALUES (:id, 10)');
+    $stmt->bind('id', $id, SQLITE3_TEXT);
+    $stmt->execute();
+  }
+}
+
 function GetGroups($id) {
   $db = new SQLite3('development.sqlite3');
-  $stmt = $db->prepare('SELECT * FROM (SELECT * FROM
-    groups JOIN user_transactions ON groups.id = user_transactions.group_transaction_id) AS tmp
-    WHERE tmp.id=:id');
+  $stmt = $db->prepare('SELECT * FROM (SELECT * FROM user_groups JOIN user_transactions 
+    ON user_groups.user_id = user_transactions.user_id) as tmp WHERE tmp.user_id=:id');
   $stmt->bindValue(':id', $id, SQLITE3_TEXT);
   return $stmt->execute();
 }
 
+function AlterGroup($id, $group_id, $removals, $additions) {}
 
-
-
+function DeleteGroup($id, $group_id) {
+  $db = new SQLite3('development.sqlite3');
+  $stmt = $db->prepare('DELETE FROM user_groups WHERE user_id = :id AND group_id = :group_id');
+  $stmt->execute();
+  $stmt = $db->prepare('DELETE FROM groups WHERE id = :group_id');
+}
 
 
 function createTransaction($user, $group_id, $purpose, $transaction_map) {
@@ -82,6 +101,8 @@ function getUserTransactionsWith($user, $other_user_id) {
 function getUser($facebook_hash) {
   $db = new SQLite3('development.sqlite3');
   $stmt = $db->prepare('SELECT * FROM users WHERE fb_user_id = :fb_id;');
-  $stmt->bindValue('
+  $stmt->bindValue('');
 }
+
 ?>
+

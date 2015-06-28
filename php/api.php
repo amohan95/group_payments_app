@@ -27,7 +27,7 @@ function getFacebookCookie() {
     $data['access_token'] = $params['access_token'];
     echo $params;
     return $data;
-  }else{
+  } else{
     return null;
   }
 }
@@ -37,15 +37,31 @@ $user = getUser(getFacebookCookie());
 $app = new \Slim\Slim();
 
 $app->post('/groups/', function() {
+  json_decode($app->request);
+  CreateGroup($app->request->id, $app->request->group_name, $app->request->group_members);
+  return json_encode(array(
+    'success' => true
+  ));
 });
 
 $app->get('/groups/:id', function($id) {
+  return json_encode(array(
+    'groups' => GetGroups($id)->fetchArray()
+  ));
 });
 
 $app->put('/groups/:id', function($id) {
+  json_decode($app->request);
+  AlterGroup($id, $group_id, $app->request->removals, $app->request->additions);
+  return json_encode(array(
+    'success' => true
+  ));
 });
 
 $app->delete('/groups/:id', function($id) {
+  return json_encode(array(
+    'success' => true
+  ))
 });
 
 $app->get('/groups/:id/transactions', function($id) {
